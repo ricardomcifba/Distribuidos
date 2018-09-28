@@ -3,18 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhosistemasdistribuidos.Server;
+package entidades;
 
+import dao.sql.MensagemDAOSQL;
+import interfaces.Sessao;
 import java.net.InetAddress;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author e127787
  */
-public class RMIServer implements Remote {
+public class RMIServer extends UnicastRemoteObject implements Sessao {
 
     public int getPorta() {
         return porta;
@@ -48,14 +54,19 @@ public class RMIServer implements Remote {
         this.id = id;
     }
     
-    int porta;
-    String ip;
-    Registry registro;    // rmi registry for lookup the remote objects.
-    int id;
+    private int porta;
+    private String ip;
+    private Registry registro;    // rmi registry for lookup the remote objects.
+    private int id;
+    private String nomeServer;
+    Scanner ler = new Scanner(System.in);
 
-    public RMIServer(int porta) throws RemoteException {
+    public RMIServer(int id, int porta) throws RemoteException {
         
+        System.out.println("Digite o nome para o servidor:");
+        nomeServer = ler.nextLine();
         this.porta = porta;
+        this.id = id;
         try {
             // get the address of this host.
          ip = InetAddress.getLocalHost().getHostAddress();
@@ -67,21 +78,33 @@ public class RMIServer implements Remote {
         try {
             // create the registry and bind the name and object.
             registro = LocateRegistry.createRegistry(porta);
-            registro.rebind("rmiServer", this);
+            registro.rebind(nomeServer, this);
         } catch (RemoteException e) {
             throw e;
         }
         
+//        static public void main(String args[]) {
+//        try {
+//            RMIServer s = new RMIServer();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.exit(1);
+//        }
+//    }
+    }
+    private MensagemDAOSQL mensagemDAOSQL = new MensagemDAOSQL();
+    
+    @Override
+    public void insert(Mensagem mensagem) {
+
+        try {
+            mensagemDAOSQL.insert(mensagem);
+        } catch (Exception ex) {
+            Logger.getLogger(RMIServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
-    
-        static public void main(String args[]) {
-        try {
-            RMIServer s = new RMIServer(2001);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
+
+
     
 }
