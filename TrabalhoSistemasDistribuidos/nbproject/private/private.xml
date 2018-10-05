@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/interfaces/MensagemDAO.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/AnotaçõesParaEntendimentodoTrabalho.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/Mensagem.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/Cliente.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/RMIServer.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/dao/sql/MensagemDAOSQL.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/dao/GenericDAO.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/servers/Servers.java</file>
-            <file>file:/F:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/interfaces/Sessao.java</file>
+            <file>file:/G:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/RMIServer.java</file>
+            <file>file:/G:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/No.java</file>
+            <file>file:/G:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/AnotaçõesParaEntendimentodoTrabalho.java</file>
+            <file>file:/G:/IFBA/5º%20Semestre/Sistemas%20Distribuidos/TrabalhoSistemasDistribuidos/src/entidades/Mensagem.java</file>
         </group>
     </open-files>
 </project-private>

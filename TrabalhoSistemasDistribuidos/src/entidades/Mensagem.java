@@ -6,12 +6,13 @@
 package entidades;
 
 import interfaces.Sessao;
+import java.io.Serializable;
 
 /**
  *
  * @author Aluno
  */
-public class Mensagem {
+public class Mensagem implements Serializable{
     
     public Mensagem(int id, String texto) {
         this.id = id;

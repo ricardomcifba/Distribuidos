@@ -8,7 +8,6 @@ package entidades;
 import dao.sql.MensagemDAOSQL;
 import interfaces.Sessao;
 import java.net.InetAddress;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -22,6 +21,13 @@ import java.util.logging.Logger;
  */
 public class RMIServer extends UnicastRemoteObject implements Sessao {
 
+    private int porta;
+    private String ip;
+    private Registry registro;    // rmi registry for lookup the remote objects.
+    private int id;
+    private String nomeServer;
+    Scanner ler = new Scanner(System.in);
+    
     public int getPorta() {
         return porta;
     }
@@ -54,13 +60,6 @@ public class RMIServer extends UnicastRemoteObject implements Sessao {
         this.id = id;
     }
     
-    private int porta;
-    private String ip;
-    private Registry registro;    // rmi registry for lookup the remote objects.
-    private int id;
-    private String nomeServer;
-    Scanner ler = new Scanner(System.in);
-
     public RMIServer(int id, int porta) throws RemoteException {
         
         System.out.println("Digite o nome para o servidor:");
@@ -83,14 +82,19 @@ public class RMIServer extends UnicastRemoteObject implements Sessao {
             throw e;
         }
         
-//        static public void main(String args[]) {
-//        try {
-//            RMIServer s = new RMIServer();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.exit(1);
-//        }
-//    }
+    }
+    
+    static public void main(String args[]) {
+        Scanner ler = new Scanner(System.in);
+        int id = 1;
+        System.out.println("Digite o numero da porta:");
+        int porta = ler.nextInt();
+        try {
+            RMIServer s = new RMIServer(id, porta);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
     private MensagemDAOSQL mensagemDAOSQL = new MensagemDAOSQL();
     
